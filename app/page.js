@@ -9,11 +9,23 @@ const Home = async () => {
   return (
     <div>
       <h1>Populer</h1>
-      <div className="grid md:grid-cols-5 sm:grid-cols-3 grid-cols-1 gap-4">
-        {anime.data.map((data) => {
+      <div className="grid sm:grid-cols-2 grid-cols-1 gap-10 px-10">
+        {anime.data.map((data, i) => {
+          
           return (
             <div key={data.mal_id}>
-              <AnimeList title={data.title} img={data.images.webp.image_url} />
+              <AnimeList
+                title={data.title}
+                img={data.images.webp.image_url}
+                order={i}
+                synopsis={data.synopsis}
+                genre={data.genres}
+                score ={data.score}
+                type ={data.type}
+                episodes = {data.episodes}
+                duration = {data.duration}
+                airing = {data.airing}
+              />
             </div>
           );
         })}
