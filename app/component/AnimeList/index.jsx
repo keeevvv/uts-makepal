@@ -1,4 +1,5 @@
 const AnimeList = ({
+  
   title,
   img,
   order,
