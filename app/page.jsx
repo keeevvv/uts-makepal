@@ -6,7 +6,7 @@ const Home = async () => {
   const topAnime = await getAnimeResponse("top/anime", "limit=4");
 
   return (
-    <div className="">
+    <div className=" pt-[70px]">
       <section>
         <div className="md:px-12 flex justify-between   ">
           <h1 className="text-xl font-bold">Populer</h1>
@@ -22,6 +22,7 @@ const Home = async () => {
             return (
               <div key={data.mal_id}>
                 <AnimeList
+                  id={data.mal_id}
                   title={data.title}
                   img={data.images.webp.image_url}
                   order={i}

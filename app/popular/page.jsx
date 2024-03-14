@@ -38,16 +38,20 @@ const Populer = () => {
   const maxAnime = 25;
 
   return (
-    <div>
+    <div className=" pt-[70px]">
       {isLoading ? ( // Tampilkan loading jika isLoading true
         <Loading />
       ) : (
         <div>
+          <div>
+            <h1 className="text-xl font-bold ml-12">Populer</h1>
+          </div>
           <div className="grid md:grid-cols-2 grid-cols-1 md:gap-6 q lg:gap-10 lg:px-10 md:px-7 gap-7  ">
             {topAnime.data?.map((data, i) => {
               return (
                 <div key={data.mal_id}>
                   <AnimeList
+                    id={data.mal_id}
                     title={data.title}
                     img={data.images.webp.image_url}
                     order={maxAnime * (page - 1) + i}

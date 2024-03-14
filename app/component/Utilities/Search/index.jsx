@@ -15,7 +15,7 @@ const SearchFunction = () => {
   };
 
   return (
-    <div className="md:w-[300px] relative w-[200px] ">
+    <div className="md:w-[300px] relative w-[150px]  h-[25px] ">
       <div className="relative">
         <input
           type="search"

@@ -2,6 +2,7 @@
 import AnimeList from "@/app/component/AnimeList";
 import Pagination from "@/app/component/Utilities/paginations";
 import Loading from "@/app/loading";
+
 import React, { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
@@ -13,7 +14,7 @@ const Page = ({ params }) => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/anime?q=${params.keyword}&sfw&page=${page}`
+        `https://api.jikan.moe/v4/anime?genres=${params.id}&sfw&page=${page}`
       );
       const data = await response.json();
       setSearchAnime(data);
@@ -36,9 +37,7 @@ const Page = ({ params }) => {
         <Loading />
       ) : (
         <div className="pt-[70px] ">
-          <h1 className="ml-11 font-bold">
-            Pencarian Untuk {decodeURI(params.keyword)}
-          </h1>
+          <h1 className="ml-11 font-bold">Genre {params.name}</h1>
 
           {searchAnime.data?.length === 0 ? (
             <p className="ml-3 font-bold">Tidak Ditemukan</p>

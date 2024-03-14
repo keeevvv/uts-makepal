@@ -1,5 +1,8 @@
+"use client";
+import Link from "next/link";
+
 const AnimeList = ({
-  
+  id,
   title,
   img,
   order,
@@ -18,12 +21,13 @@ const AnimeList = ({
   }
 
   return (
-    <div>
+    <div className="">
       <div className="flex justify-start bg-gray-300 rounded-md  w-auto pb-2   ">
         <img
           src={img}
           alt=""
           className=" pt-7 w-[200px] h-[215px] hover:cursor-pointer sm:h lg:w-[200px] lg:h-[290px] rounded-md lg:pt-3 pl-3 md:w-[120px] md:h-[195px] md:pt-5"
+          onClick={() => (window.location.href = `/anime/${id}`)}
         />
 
         <div className=" mt-6 lg:mt-2 lg:pt-2 ">
@@ -31,9 +35,12 @@ const AnimeList = ({
             <h4 className="font-bold text-[12px] lg:text-[16px] md:text-[9px]">
               {order + 1}.
             </h4>
-            <h4 className="font-bold pb-2 text-[12px] lg:text-[16px] md:text-[9px] mr-6 hover:cursor-pointer">
-              {title}
-            </h4>
+
+            <Link href={`/anime/${id}`}>
+              <h4 className="font-bold pb-2 text-[12px] lg:text-[16px] md:text-[9px] mr-6 hover:cursor-pointer">
+                {title}
+              </h4>
+            </Link>
           </div>
 
           <div className="">
@@ -53,7 +60,7 @@ const AnimeList = ({
               </p>
             )}
             <div className="  max-h-[100px] hover:cursor-pointer overflow-hidden hover:overflow-auto lg:max-h-[175px] md:max-h-[90px] pl-7 pr-[30px]  ">
-              <p className="text-xs lg:text-[13px] ">{synopsis}</p>
+              <p className="text-xs lg:text-[13px] text-justify ">{synopsis}</p>
             </div>
           </div>
 
@@ -61,9 +68,11 @@ const AnimeList = ({
             {genre.map((data, i) => {
               return (
                 <div key={i} className=" bg-slate-400 rounded-md w-13 ">
-                  <p className="text-[8px] font-semibold p-1 hover:cursor-pointer">
-                    {data.name}
-                  </p>
+                  <Link  href={`/genre/${data.mal_id}/${data.name}`}>
+                    <p className="text-[8px] font-semibold p-1 hover:cursor-pointer">
+                      {data.name}
+                    </p>
+                  </Link>
                 </div>
               );
             })}
