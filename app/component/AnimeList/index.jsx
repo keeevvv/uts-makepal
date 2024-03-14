@@ -26,9 +26,12 @@ const AnimeList = ({
         <img
           src={img}
           alt=""
-          className=" pt-7 w-[200px] h-[215px] hover:cursor-pointer sm:h lg:w-[200px] lg:h-[290px] rounded-md lg:pt-3 pl-3 md:w-[120px] md:h-[195px] md:pt-5"
-          onClick={() => (window.location.href = `/anime/${id}`)}
+          className="pt-7 w-[200px] h-[215px] hover:cursor-pointer sm:h lg:w-[200px] lg:h-[290px] rounded-md lg:pt-3 pl-3 md:w-[120px] md:h-[195px] md:pt-5"
         />
+        <Link
+          className="absolute pt-7 w-[200px] h-[215px] hover:cursor-pointer sm:h lg:w-[200px] lg:h-[290px] rounded-md lg:pt-3 pl-3 md:w-[120px] md:h-[195px] md:pt-5 text-center test"
+          href={`/anime/${id}`}
+        ></Link>
 
         <div className=" mt-6 lg:mt-2 lg:pt-2 ">
           <div className="flex lg:gap-2 md:gap-1 pl-3">
@@ -68,7 +71,7 @@ const AnimeList = ({
             {genre.map((data, i) => {
               return (
                 <div key={i} className=" bg-slate-400 rounded-md w-13 ">
-                  <Link  href={`/genre/${data.mal_id}/${data.name}`}>
+                  <Link href={`/genre/${data.mal_id}/${data.name}`}>
                     <p className="text-[8px] font-semibold p-1 hover:cursor-pointer">
                       {data.name}
                     </p>
