@@ -13,7 +13,7 @@ const Page = ({ params }) => {
   const [searchAnime, setSearchAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const endpoint = `http://localhost:3000/genre/1/${params.name}?page=`;
+  const endpoint = `/genre/${params.id}/${params.name}?page=`;
 
   const fetchData = async () => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai

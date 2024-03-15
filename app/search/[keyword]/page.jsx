@@ -12,7 +12,7 @@ const Page = ({ params }) => {
   const [page, setPage] = useState(search);
   const [searchAnime, setSearchAnime] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const endpoint = `http://localhost:3000/search/${params.keyword}?page=`;
+  const endpoint = `${params.keyword}?page=`;
 
   const fetchData = async () => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai
@@ -68,7 +68,12 @@ const Page = ({ params }) => {
                   </div>
                 ))}
               </div>
-              <Pagination api={searchAnime} setPage={setPage} page={page} endpoint={endpoint} />
+              <Pagination
+                api={searchAnime}
+                setPage={setPage}
+                page={page}
+                endpoint={endpoint}
+              />
             </div>
           )}
         </div>

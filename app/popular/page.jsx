@@ -12,7 +12,7 @@ const Populer = () => {
   const [page, setPage] = useState(search);
   const [topAnime, setTopAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // State untuk menunjukkan status loading
-  const endpoint = "http://localhost:3000/popular?page=";
+  const endpoint = "/popular?page=";
 
   const fetchData = async () => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai
