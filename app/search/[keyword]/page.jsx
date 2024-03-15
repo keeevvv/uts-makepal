@@ -2,12 +2,17 @@
 import AnimeList from "@/app/component/AnimeList";
 import Pagination from "@/app/component/Utilities/paginations";
 import Loading from "@/app/loading";
+import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Page = ({ params }) => {
-  const [page, setPage] = useState(1);
+  const searcParams = useSearchParams();
+
+  const search = searcParams.get("page") || 1;
+  const [page, setPage] = useState(search);
   const [searchAnime, setSearchAnime] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const endpoint = `http://localhost:3000/search/${params.keyword}?page=`;
 
   const fetchData = async () => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai
@@ -63,7 +68,7 @@ const Page = ({ params }) => {
                   </div>
                 ))}
               </div>
-              <Pagination api={searchAnime} setPage={setPage} page={page} />
+              <Pagination api={searchAnime} setPage={setPage} page={page} endpoint={endpoint} />
             </div>
           )}
         </div>

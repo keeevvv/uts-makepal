@@ -3,18 +3,16 @@ import React, { useState, useEffect } from "react";
 import AnimeList from "../component/AnimeList";
 import Loading from "../loading";
 import Pagination from "../component/Utilities/paginations";
+import { useSearchParams } from "next/navigation";
 
 const Populer = () => {
-  const [page, setPage] = useState(1);
+  const searcParams = useSearchParams();
+
+  const search = searcParams.get("page") || 1;
+  const [page, setPage] = useState(search);
   const [topAnime, setTopAnime] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // State untuk menunjukkan status loading
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const endpoint = "http://localhost:3000/popular?page=";
 
   const fetchData = async () => {
     setIsLoading(true); // Set status loading menjadi true saat fetch dimulai
@@ -68,7 +66,12 @@ const Populer = () => {
             })}
           </div>
 
-          <Pagination api={topAnime} setPage={setPage} page={page}></Pagination>
+          <Pagination
+            endpoint={endpoint}
+            api={topAnime}
+            setPage={setPage}
+            page={page}
+          ></Pagination>
         </div>
       )}
     </div>

@@ -10,7 +10,9 @@ const SearchFunction = () => {
   const handleSearch = (event) => {
     if (event.key === "Enter" || event.type === "click") {
       event.preventDefault();
+      
       router.push(`/search/${searchRef.current.value}`);
+      searchRef.current.value = "";
     }
   };
 
