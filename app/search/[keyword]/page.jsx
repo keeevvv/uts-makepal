@@ -28,6 +28,9 @@ const Page = ({ params }) => {
       setIsLoading(false); // Set status loading menjadi false setelah fetch selesai
     }
   };
+  
+    
+  
 
   useEffect(() => {
     fetchData();

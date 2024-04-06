@@ -13,12 +13,17 @@ const AnimeList = ({
   episodes,
   duration,
   airing,
+  
+
 }) => {
   if (airing === true) {
     airing = "Ongoing";
   } else {
     airing = "Finished";
   }
+
+
+
 
   return (
     <div className="">
@@ -57,7 +62,7 @@ const AnimeList = ({
                 TV Series •{episodes} Episodes
               </p>
             ) : (
-              // Kondisi jika false
+              
               <p className="text-xs font-semibold ml-7 lg:text-sm md:text-xs">
                 Movie •{duration}
               </p>
@@ -67,11 +72,12 @@ const AnimeList = ({
             </div>
           </div>
 
-          <div className="flex flex-row gap-2 ml-7 mt-1 mr-1">
+          <div className="flex flex-row gap-2 ml-7 mt-1 mr-1 flex-wrap">
             {genre.map((data, i) => {
+              const slug = data.name.replace(/\s+/g, '-').toLowerCase();
               return (
                 <div key={i} className=" bg-slate-400 rounded-md w-13 ">
-                  <Link href={`/genre/${data.mal_id}/${data.name}`}>
+                  <Link href={`/genre/${data.mal_id}/${slug}`}>
                     <p className="text-[8px] font-semibold p-1 hover:cursor-pointer">
                       {data.name}
                     </p>
