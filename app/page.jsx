@@ -73,9 +73,7 @@ const Home = async () => {
         </div>
       </section>
 
-      <section>
-        <CardSlider />
-      </section>
+      
     </div>
   );
 };
