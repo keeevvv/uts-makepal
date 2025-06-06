@@ -71,9 +71,11 @@ const Home = async () => {
             );
           })}
         </div>
-      </section>
 
-      
+        <div>
+          <h1>contoh perubahan</h1>
+        </div>
+      </section>
     </div>
   );
 };
