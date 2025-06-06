@@ -66,14 +66,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Deploy to Vercel Production
-        uses: amondnet/vercel-action@v25 # Menggunakan Vercel Action yang populer
-        with:
-          # Token otorisasi dari Vercel
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          # ID Organisasi Vercel Anda
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          # ID Proyek Vercel Anda
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          # Tentukan bahwa ini adalah deployment untuk produksi
-          vercel-prod: true
+      - name: Install vercel CLI
+        run: npm install -g vercel
+
+      - name: deploy to vercel
+        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
+      
+      
