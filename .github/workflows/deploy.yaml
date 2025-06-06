@@ -59,17 +59,18 @@ jobs:
 
   # JOB 2: Deploy ke Vercel setelah push ke main
   deploy-to-vercel:
-    # Hanya berjalan jika eventnya adalah 'push' ke branch 'main'
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+  runs-on: ubuntu-latest
 
-      - name: Install vercel CLI
-        run: npm install -g vercel
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
 
-      - name: deploy to vercel
-        run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
-      
-      
+    - name: Install Vercel CLI
+      run: npm install -g vercel
+
+    - name: Pull Vercel Environment Info
+      run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+    - name: Deploy to Vercel (Production)
+      run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }}
