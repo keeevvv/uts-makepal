@@ -1,0 +1,45 @@
+name: CI/CD - Deploy to Vercel
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  version-check-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code (current branch)
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Get current version from package.json
+        id: current
+        run: |
+          echo "current_version=$(jq -r .version package.json)" >> $GITHUB_OUTPUT
+
+      - name: Fetch main branch
+        run: git fetch origin main
+
+      - name: Get previous version from main
+        run: |
+          git checkout origin/main -- package.json
+          echo "previous_version=$(jq -r .version package.json)" >> $GITHUB_ENV
+
+      - name: Compare versions
+        id: compare
+        run: |
+          current="${{ steps.current.outputs.current_version }}"
+          previous="${{ env.previous_version }}"
+          echo "Current version: $current"
+          echo "Previous version: $previous"
+          if [ "$(printf '%s\n' "$previous" "$current" | sort -V | head -n1)" = "$current" ] && [ "$previous" != "$current" ]; then
+            echo "✅ Version check passed."
+          else
+            echo "❌ Version must be higher than previous ($previous). Current is $current."
+            exit 1
+          fi
+
+     
