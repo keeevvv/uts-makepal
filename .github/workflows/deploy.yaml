@@ -33,8 +33,8 @@ jobs:
 
           # Jika versi saat ini sama dengan versi sebelumnya (misalnya pada PR yang belum update versi), lewati error
           if [ "$current_v" = "$previous_v" ]; then
-            echo "🟡 Versions are the same. No new version detected."
-            exit 0
+            echo "🟡 Versions are the same."
+            exit 1
           fi
 
           # Cek jika versi baru lebih tinggi dari versi lama
