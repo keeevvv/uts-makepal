@@ -35,11 +35,11 @@ jobs:
           previous="${{ env.previous_version }}"
           echo "Current version: $current"
           echo "Previous version: $previous"
-          if [ "$(printf '%s\n' "$previous" "$current" | sort -V | head -n1)" = "$current" ] && [ "$previous" != "$current" ]; then
-            echo "✅ Version check passed."
-          else
+          
+          # Validasi: current harus lebih besar dari previous
+          if [ "$(printf '%s\n' "$previous" "$current" | sort -V | tail -n1)" != "$current" ]; then
             echo "❌ Version must be higher than previous ($previous). Current is $current."
             exit 1
+          else
+            echo "✅ Version check passed."
           fi
-
-     
