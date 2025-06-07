@@ -73,7 +73,7 @@ const Home = async () => {
         </div>
 
         <div>
-          <h1>contoh perubahan 11</h1>
+          <h1>contoh perubahan 12</h1>
         </div>
       </section>
     </div>
