@@ -5,7 +5,6 @@ import CardSlider from "./component/cardSlider";
 
 const Home = async () => {
   const topAnime = await getAnimeResponse("top/anime", "limit=4");
-  
 
   return (
     <div className=" pt-[70px]  ">
@@ -74,7 +73,7 @@ const Home = async () => {
         </div>
 
         <div>
-          <h1>contoh perubahan 12</h1>
+          <h1>contoh perubahan 100</h1>
         </div>
       </section>
     </div>
