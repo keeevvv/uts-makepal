@@ -16,7 +16,6 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth">
       <body className={"scroll-smooth"}>
         <Navbar />
-
         {children}
       </body>
     </html>
