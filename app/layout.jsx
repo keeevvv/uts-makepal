@@ -12,10 +12,56 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
+  console.log("RootLayout rendered");
   return (
     <html lang="en" className="scroll-smooth">
       <body className={"scroll-smooth"}>
-        <Navbar zxzzzz cccccc/>
+        <Navbar />
 
         {children}
       </body>
